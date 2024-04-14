@@ -20,8 +20,8 @@ class Utilidades {
         fun getCollectionReferenceForNotes(): CollectionReference {
             val currentUser = FirebaseAuth.getInstance().currentUser
             requireNotNull(currentUser) { "Usuario no autenticado" }
-            return FirebaseFirestore.getInstance().collection("notas")
-                .document(currentUser!!.uid).collection("mis_notas")
+            return FirebaseFirestore.getInstance().collection("citas")
+                .document(currentUser!!.uid).collection("mis_citas")
         }
 
         fun timestampToString(timestamp: Timestamp): String {

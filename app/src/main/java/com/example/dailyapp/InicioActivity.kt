@@ -22,7 +22,7 @@ class InicioActivity : AppCompatActivity(){
 
         val btnNot = findViewById<Button>(R.id.btnNotas);
         btnNot.setOnClickListener{
-            startActivity(Intent(this, ListaNotasActivity:: class.java))
+            startActivity(Intent(this, ListaCitasActivity:: class.java))
         }
         //CERRAR SESION
         val logout = findViewById<Button>(R.id.cerrarBtn)
@@ -34,7 +34,7 @@ class InicioActivity : AppCompatActivity(){
 
         val btnLapiz = findViewById<ImageView>(R.id.lapizBtn)
         btnLapiz.setOnClickListener{
-            startActivity(Intent(this,NotaDetalleActivity:: class.java))
+            startActivity(Intent(this,CitaDetalleActivity:: class.java))
         }
     }
 }

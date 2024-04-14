@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "518341611284",
+    "project_id": "diarioapp-955b2",
+    "storage_bucket": "diarioapp-955b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518341611284:android:2c63a65c8b23331f3cbc01",
+        "android_client_info": {
+          "package_name": "com.example.dailyapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0JO22pg5YXOUBp1XoJLnVlZ3Aqp_ZJfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518341611284:android:d6616a6f37c08c643cbc01",
+        "android_client_info": {
+          "package_name": "easy.tuto.notespro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0JO22pg5YXOUBp1XoJLnVlZ3Aqp_ZJfM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

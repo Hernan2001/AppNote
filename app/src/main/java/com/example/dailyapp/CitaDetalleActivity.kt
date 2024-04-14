@@ -1,6 +1,5 @@
 package com.example.dailyapp
 
-import android.content.Intent
 import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.SpeechRecognizer
@@ -14,7 +13,7 @@ import com.google.firebase.firestore.DocumentReference
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.Timestamp
 
-class NotaDetalleActivity : AppCompatActivity() {
+class CitaDetalleActivity : AppCompatActivity() {
     private lateinit var titleEditText: EditText
     private lateinit var contentEditText: EditText
     private lateinit var guardarBtn: ImageButton
@@ -29,7 +28,7 @@ class NotaDetalleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_nota_detalle)
+        setContentView(R.layout.activity_cita_detalle)
 
         titleEditText = findViewById(R.id.TituloEditTxt)
         contentEditText = findViewById(R.id.ContenidoTxt)
@@ -51,11 +50,11 @@ class NotaDetalleActivity : AppCompatActivity() {
         contentEditText.setText(contenido)
 
         if (isEditMode) {
-            tituloPag.text = "Edite su Nota"
+            tituloPag.text = "Edite su Cita"
             //Se mostrara el boton eliminar cuando se este en modo edición
             eliminarBtn.visibility = View.VISIBLE
         }
-        guardarBtn.setOnClickListener { guardarNota() }
+        guardarBtn.setOnClickListener { guardarCita() }
         eliminarBtn.setOnClickListener { borrarNotaDeFirebase() }
 
         microfono = Microfono(this, object : RecognitionListener {
@@ -91,7 +90,7 @@ class NotaDetalleActivity : AppCompatActivity() {
             microfono.startSpeechRecognition()
         }
     }
-    private fun guardarNota() {
+    private fun guardarCita() {
         val noteTitle = titleEditText.text.toString()
         val noteContent = contentEditText.text.toString()
 
@@ -103,14 +102,14 @@ class NotaDetalleActivity : AppCompatActivity() {
             Utilidades.showMensaje(this,"No hay contenido")
             return
         }
-        val note = Nota()
+        val note = Cita()
         note.title = noteTitle
         note.content = noteContent
         note.timestamp = Timestamp.now()
 
         saveNotaEnFirebase(note)
     }
-    private fun saveNotaEnFirebase(note: Nota) {
+    private fun saveNotaEnFirebase(note: Cita) {
         val documentReference: DocumentReference = if (isEditMode) {
             Utilidades.getCollectionReferenceForNotes().document(docId!!)
         } else {
@@ -118,11 +117,11 @@ class NotaDetalleActivity : AppCompatActivity() {
         }
         documentReference.set(note).addOnCompleteListener { task: Task<Void?> ->
             if (task.isSuccessful) {
-                //nota agregada
-                Utilidades.showMensaje(this@NotaDetalleActivity, "Nota guardada Exitosamente")
+                //cita agregada
+                Utilidades.showMensaje(this@CitaDetalleActivity, "Cita agendada Exitosamente")
                 finish()
             } else {
-                Utilidades.showMensaje(this@NotaDetalleActivity, "Fallo al guardar la Nota")
+                Utilidades.showMensaje(this@CitaDetalleActivity, "Fallo al guardar la Cita Gil")
             }
         }
     }
@@ -132,10 +131,10 @@ class NotaDetalleActivity : AppCompatActivity() {
         documentReference.delete().addOnCompleteListener { task: Task<Void?> ->
             if (task.isSuccessful) {
                 //Eliminar
-                Utilidades.showMensaje(this@NotaDetalleActivity, "Nota Eliminada Exitosamente")
+                Utilidades.showMensaje(this@CitaDetalleActivity, "Nota.kt Eliminada Exitosamente")
                 finish()
             } else {
-                Utilidades.showMensaje(this@NotaDetalleActivity, "Fallo al Eliminar la Nota")
+                Utilidades.showMensaje(this@CitaDetalleActivity, "Fallo al Eliminar la Nota.kt")
             }
         }
     }
