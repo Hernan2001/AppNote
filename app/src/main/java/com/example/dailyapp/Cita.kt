@@ -1,7 +1,7 @@
 package com.example.dailyapp
 import com.google.firebase.Timestamp
 
-class Nota{
+class Cita {
     var title: String? = null
         set(value) {
             field = value

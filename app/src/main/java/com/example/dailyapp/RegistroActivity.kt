@@ -16,7 +16,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
-
 class RegistroActivity : AppCompatActivity() {
 
     val db = Firebase.firestore
@@ -24,7 +23,6 @@ class RegistroActivity : AppCompatActivity() {
     private lateinit var nameEditText: EditText
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
-    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +35,6 @@ class RegistroActivity : AppCompatActivity() {
         nameEditText = findViewById(R.id.txtName)
         emailEditText = findViewById(R.id.txtEmail)
         passwordEditText = findViewById(R.id.txtContra)
-        //progressBar = findViewById(R.id.progressBar)
 
 
 
@@ -53,18 +50,8 @@ class RegistroActivity : AppCompatActivity() {
                 startActivity(Intent(this, LoginActivity:: class.java))
             }
         }
-    }/*
-    //CODIGO DE BARRA DE CARGA
-    private fun changeInProgress(inProgress: Boolean) {
+    }
 
-        if (inProgress) {
-            progressBar.visibility = View.VISIBLE
-            createAccountBtn.visibility = View.GONE
-        } else {
-            progressBar.visibility = View.GONE
-            createAccountBtn.visibility = View.VISIBLE
-        }
-    }*/
     private fun validateFields(name: String, email: String, password: String): Boolean {
         // Validar el nombre de usuario
         if (!name.matches(Regex("[A-Z][a-z]*"))) {
@@ -90,8 +77,7 @@ class RegistroActivity : AppCompatActivity() {
             try {
                 val authResult =
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).await()
-                // Enviar un correo de verificación al usuario
-                //verificacionEmail(authResult.user)
+
                 authResult.user
                 guardarUsuario(authResult.user?.uid, email, name)
                 finish()
@@ -121,27 +107,6 @@ class RegistroActivity : AppCompatActivity() {
                 showMensaje("Error al registrar el usuario: ${e.message}")
             }
     }
-/*z
-    private fun verificacionEmail(user: FirebaseUser?) {
-        user?.sendEmailVerification()
-            ?.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // Email de verificación enviado con éxito
-                    Toast.makeText(
-                        this@RegistroActivity,
-                        "Se ha enviado un correo de verificación a tu dirección de correo electrónico. Por favor, verifica tu correo electrónico.",
-                        Toast.LENGTH_LONG
-                    ).show()
-                } else {
-                    // Error al enviar el correo de verificación
-                    Toast.makeText(
-                        this@RegistroActivity,
-                        "Error al enviar el correo de verificación: ${task.exception?.message}",
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }
-    }*/
     private fun showMensaje(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/FondoP"
     android:padding="16dp"
-    tools:context=".NotaDetalleActivity">
+    tools:context=".CitaDetalleActivity">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,7 +18,7 @@
             android:id="@+id/titulo_pag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Agregar nueva nota"
+            android:text="Agregar nueva Cita"
             android:textColor="@color/black"
             android:textSize="32dp"
             android:textStyle="bold" />
@@ -92,7 +93,7 @@
 
     <TextView
         android:id="@+id/EliminarBtn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/CuadroContenido"
         android:layout_marginTop="-10dp"
@@ -101,7 +102,8 @@
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:visibility="gone"/>
+        android:visibility="gone" />
+
 
 </RelativeLayout>
 

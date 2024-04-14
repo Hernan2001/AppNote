@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:background="@color/FondoP"
-    tools:context=".ListaNotasActivity">
+    tools:context=".ListaCitasActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/titulo_pag"
             android:textSize="32sp"
-            android:text="Notas"
+            android:text="Citas Pscoanaliticos"
             android:textColor="@color/black"
             android:textStyle="bold"/>
 

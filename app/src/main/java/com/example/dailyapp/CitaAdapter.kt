@@ -9,22 +9,21 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import android.content.Context
 
-class NotaAdapter(options: FirestoreRecyclerOptions<Nota>, private val context: Context) :
-    FirestoreRecyclerAdapter<Nota, NotaAdapter.NotaViewHolder>(options){
-
+class CitaAdapter(options: FirestoreRecyclerOptions<Cita>, private val context: Context) :
+    FirestoreRecyclerAdapter<Cita, CitaAdapter.NotaViewHolder>(options){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotaViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.nota_item, parent, false)
+            .inflate(R.layout.cita_item, parent, false)
         return NotaViewHolder(view)
     }
-    override fun onBindViewHolder(holder: NotaViewHolder, position: Int, model: Nota) {
+    override fun onBindViewHolder(holder: NotaViewHolder, position: Int, model: Cita) {
         holder.tituloTextView.text = model.title
         holder.contenidoTextView.text = model.content
         holder.timestampTextView.text = Utilidades.timestampToString(model.timestamp!!)
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(context, NotaDetalleActivity::class.java)
+            val intent = Intent(context, CitaDetalleActivity::class.java)
             intent.putExtra("title", model.title)
             intent.putExtra("content", model.content)
             val docId = snapshots.getSnapshot(position).id
