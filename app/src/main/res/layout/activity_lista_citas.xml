@@ -15,13 +15,13 @@
         android:id="@+id/cabecera">
 
         <TextView
+            android:id="@+id/titulo_pag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/titulo_pag"
-            android:textSize="32sp"
-            android:text="Citas Pscoanaliticos"
+            android:text="Mis Citas:"
             android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
