@@ -1,2 +1,1 @@
-SIUUUUUUUUUUUUUU, HuamaYaya has todo
-
+Aprobecho para condenar al estado de Israel, maldito seas estado de Israel !!, maldito seas
